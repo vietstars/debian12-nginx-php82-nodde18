@@ -1,0 +1,21 @@
+version: '3.9'
+
+networks:
+  development_net:
+
+services:
+
+  web:
+    container_name: debian12-nginx-1.25_php-8.2
+    build: .
+    volumes:
+      - ./config/web/log:/var/log/nginx/
+      - ./config/web/nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ./config/web/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./src:/var/www/dev.org
+    ports:
+      - "${APP_PORT}:80"
+      - "${APP_TLS_PORT}:443"
+    networks:
+      - development_net
+
