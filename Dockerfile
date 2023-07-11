@@ -1,5 +1,6 @@
 FROM dec24th82/complex:debian12-ngix-php8.2-node18
 #FROM scratch
+#FROM --platform=linux/amd64 scratch
 #ADD rootfs.tar.xz /
 
 RUN apt-get update -y
