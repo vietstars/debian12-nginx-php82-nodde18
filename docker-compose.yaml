@@ -9,6 +9,7 @@ services:
     container_name: debian12-nginx-1.25_php-8.2
     build: .
     volumes:
+      - ./config/certs:/etc/nginx/certs
       - ./config/web/log:/var/log/nginx/
       - ./config/web/nginx/sites-enabled:/etc/nginx/sites-enabled
       - ./config/web/nginx/nginx.conf:/etc/nginx/nginx.conf
